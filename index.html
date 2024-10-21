@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" href="/css/styles.css">
     <!-- Required meta tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,17 +26,99 @@
     <meta name="twitter:image" content="path/to/your/image.jpg">
     <!-- Favicon -->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="css/styles.css">
-    <title>Timothy Williams | Software Developer Portfolio</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom CSS -->
+    <style>
+        /* Glowy and blobby background for the hero section */
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(58, 123, 213, 0.8), rgba(0, 210, 255, 0.8));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            animation: blob 20s infinite;
+            opacity: 0.7;
+        }
+
+        .blob1 {
+            width: 60vh;
+            height: 60vh;
+            background-color: #3A7BD5;
+            top: -10%;
+            left: -10%;
+        }
+
+        .blob2 {
+            width: 50vh;
+            height: 50vh;
+            background-color: #00D2FF;
+            bottom: -10%;
+            right: -10%;
+        }
+
+        @keyframes blob {
+            0%,
+            100% {
+                transform: scale(1) translate(0, 0);
+            }
+
+            50% {
+                transform: scale(1.2) translate(20px, 20px);
+            }
+        }
+
+        /* Animation for orbiting skills */
+        .orbit {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+        }
+
+        .orbit-item {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform-origin: -150px 0px;
+            animation: orbit 10s linear infinite;
+        }
+
+        @keyframes orbit {
+            from {
+                transform: rotate(0deg) translateX(150px) rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg) translateX(150px) rotate(-360deg);
+            }
+        }
+    </style>
+    <title>Timothy Williams | Software Developer Portfolio</title>
 </head>
 
-<body>
-    <header class="bg-gray-900 bg-opacity-75 text-white py-4 fixed top-0 w-full flex items-center justify-between px-6 backdrop-filter backdrop-blur-lg">
+<body class="bg-gray-900 text-white">
+    <!-- Welcome Screen -->
+    <div id="welcome-screen">
+        <video autoplay muted loop class="background-video">
+        <source src="/img/motion-of-shinny-stars-animation-on-black-background-night-stars-skies-with-twinkling-or-blinking-stars-motion-background-looping-seamless-space-backdrop-travel-free-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+        </video>
+        <h1 class="welcome-text">Welcome</h1>
+    </div>
+
+    <!-- Main Content -->
+     <div id="main-content">
+    <header
+        class="bg-gray-900 bg-opacity-75 text-white py-4 fixed top-0 w-full flex items-center justify-between px-6 backdrop-filter backdrop-blur-lg z-50">
         <!-- Logo or Brand Name -->
         <div class="flex items-center space-x-4">
-            <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-2xl font-bold">
+            <div
+                class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-2xl font-bold hover:bg-blue-600 transition duration-300">
                 <a href="#home">TW</a>
             </div>
         </div>
@@ -44,113 +127,137 @@
         <ul class="flex space-x-6">
             <li><a href="#home" class="hover:text-blue-500 transition duration-300">Home</a></li>
             <li><a href="#about" class="hover:text-blue-500 transition duration-300">About</a></li>
+            <li><a href="#skills" class="hover:text-blue-500 transition duration-300">Skills</a></li>
             <li><a href="#projects" class="hover:text-blue-500 transition duration-300">Projects</a></li>
             <li><a href="#contact" class="hover:text-blue-500 transition duration-300">Contact</a></li>
         </ul>
     </header>
-    <main>
+
+    <main class="pt-16">
         <!-- Hero Section -->
-        <section id="home">
-            <!-- Add your hero content here -->
-            <div class="bg-gray-800 text-white h-screen flex flex-col justify-center items-center">
-                <h1 class="text-5xl md:text-7xl font-bold mb-6">Timothy Williams</h1>
-                <p class="text-xl md:text-2xl mb-8">Aspiring Software Developer</p>
-                <a href="#projects"
-                    class="bg-blue-500 text-white px-6 py-3 rounded-full text-lg hover:bg-blue-600 transition duration-300">View
-                    My Work</a>
-            </div>
-        </section>
-
-        <!-- About Me Section -->
-        <section id="about">
-            <!-- Add your about me content here -->
-            <div class="bg-gray-100 text-gray-800 h-screen flex flex-col justify-center items-center">
-                <h2 class="text-4xl md:text-6xl font-bold mb-6">About Me</h2>
-                <p class="text-lg md:text-xl max-w-2xl text-center mb-8">I am a software developer with a passion for
-                    creating innovative solutions to real-world problems. I have experience with a variety of
-                    programming languages and technologies, and I am always eager to learn new things.</p>
-                <a href="#contact"
-                    class="bg-blue-500 text-white px-6 py-3 rounded-full text-lg hover:bg-blue-600 transition duration-300">Get
-                    In Touch</a>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills">
-            <!-- Add your skills here -->
-            <div class="bg-gray-800 text-white h-screen flex flex-col justify-center items-center">
-                <h2 class="text-4xl md:text-6xl font-bold mb-6">Skills</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="bg-gray-900 p-6 rounded-lg">
-                        <h3 class="text-2xl font-bold mb-4">Frontend Development</h3>
-                        <p class="mb-4">HTML, CSS, JavaScript, React, Tailwind CSS</p>
-                    </div>
-                    <div class="bg-gray-900 p-6 rounded-lg">
-                        <h3 class="text-2xl font-bold mb-4">Backend Development</h3>
-                        <p class="mb-4">Node
-                            JS, Express, MongoDB, SQL, REST APIs</p>
-                    </div>
-                    <div class="bg-gray-900 p-6 rounded-lg">
-                        <h3 class="text-2xl font-bold mb-4">Other Skills</h3>
-                        <p class="mb-4">Git, GitHub, Command Line, Agile Development</p>
-                    </div>
+        <section id="home" class="hero-bg h-screen flex items-center">
+            <div class="blob blob1"></div>
+            <div class="blob blob2"></div>
+            <div class="container mx-auto flex flex-col md:flex-row items-center px-6 md:px-12">
+                <div class="w-full md:w-1/2 text-left">
+                    <h1 class="text-5xl md:text-7xl font-bold mb-6">Timothy Williams</h1>
+                    <p class="text-xl md:text-2xl mb-8">Aspiring Software Developer</p>
+                    <a href="#projects"
+                        class="bg-blue-500 text-white px-6 py-3 rounded-full text-lg hover:bg-blue-600 transition duration-300">View
+                        My Work</a>
+                </div>
+                <div class="w-full md:w-1/2 mt-8 md:mt-0 flex justify-center">
+                    <img src="img/Screenshot 2024-10-17 at 12-48-16 (JPEG Image 171 × 294 pixels).png" alt="Profile Image"
+                        class="w-2/3 md:w-full rounded-full shadow-lg">
                 </div>
             </div>
         </section>
 
-        <!-- Projects Section -->
-        <section id="projects">
-            <!-- Add your projects here -->
-            <div class="bg-gray-800 text-white h-screen flex flex-col justify-center items-center">
-                <h2 class="text-4xl md:text-6xl font-bold mb-6">Projects</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="bg-gray-900 p-6 rounded-lg">
-                        <h3 class="text-2xl font-bold mb-4">Project 1</h3>
-                        <p class="mb-4">Description of Project 1</p>
-                        <a href="#"
-                            class="bg-blue-500 text-white px-4 py-2 rounded-full text-lg hover:bg-blue-600 transition duration-300">View
-                            Project</a>
+        <!-- About Me Section (Alternating Position) -->
+        <section id="about" class="bg-gray-100 text-gray-800 py-20">
+            <div class="container mx-auto flex flex-col md:flex-row items-center px-6 md:px-12">
+                <div class="w-full md:w-1/2 order-2 md:order-1 mt-8 md:mt-0">
+                    <img src="" alt="About Image" class="w-2/3 md:w-full rounded-full shadow-lg mx-auto">
+                </div>
+                <div class="w-full md:w-1/2 text-left order-1 md:order-2">
+                    <h2 class="text-4xl md:text-6xl font-bold mb-6">About Me</h2>
+                    <p class="text-lg md:text-xl mb-8">I am a software developer with a passion for creating innovative
+                        solutions to real-world problems. I have experience with a variety of programming languages and
+                        technologies, and I am always eager to learn new things.</p>
+                    <a href="#contact"
+                        class="bg-blue-500 text-white px-6 py-3 rounded-full text-lg hover:bg-blue-600 transition duration-300">Get
+                        In Touch</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section with Animated Orbiting Skills -->
+        <section id="skills" class="bg-gray-900 text-white py-20">
+            <div class="container mx-auto text-center">
+                <h2 class="text-4xl md:text-6xl font-bold mb-12">Skills</h2>
+                <div class="orbit">
+                    <!-- Skill Items -->
+                    <div class="orbit-item" style="animation-delay: 0s;">
+                        <span class="bg-blue-500 px-4 py-2 rounded-full">HTML</span>
                     </div>
-                    <div class="bg-gray-900 p-6 rounded-lg">
-                        <h3 class="text-2xl font-bold mb-4">Project 2</h3>
-                        <p class="mb-4">Description of Project 2</p>
-                        <a href="#"
-                            class="bg-blue-500 text-white px-4 py-2 rounded-full text-lg hover:bg-blue-600 transition duration-300">View
-                            Project</a>
+                    <div class="orbit-item" style="animation-delay: 1s;">
+                        <span class="bg-green-500 px-4 py-2 rounded-full">CSS</span>
                     </div>
-                    <div class="bg-gray-900 p-6 rounded-lg">
-                        <h3 class="text-2xl font-bold mb-4">Project 3</h3>
-                        <p class="mb-4">Description of Project 3</p>
-                        <a href="#"
-                            class="bg-blue-500 text-white px-4 py-2 rounded-full text-lg hover:bg-blue-600 transition duration-300">View
-                            Project</a>
+                    <div class="orbit-item" style="animation-delay: 2s;">
+                        <span class="bg-yellow-500 px-4 py-2 rounded-full">JavaScript</span>
                     </div>
-                    <div class="bg-gray-900 p-6 rounded-lg">
-                        <h3 class="text-2xl font-bold mb-4">Project 4</h3>
-                        <p class="mb-4">Description of Project 4</p>
-                        <a href="#"
-                            class="bg-blue-500 text-white px-4 py-2 rounded-full text-lg hover:bg-blue-600 transition duration-300">View
-                            Project</a>
+                    <div class="orbit-item" style="animation-delay: 3s;">
+                        <span class="bg-indigo-500 px-4 py-2 rounded-full">React</span>
                     </div>
+                    <div class="orbit-item" style="animation-delay: 4s;">
+                        <span class="bg-purple-500 px-4 py-2 rounded-full">Node.js</span>
+                    </div>
+                    <div class="orbit-item" style="animation-delay: 5s;">
+                        <span class="bg-red-500 px-4 py-2 rounded-full">Express</span>
+                    </div>
+                    <div class="orbit-item" style="animation-delay: 6s;">
+                        <span class="bg-teal-500 px-4 py-2 rounded-full">MongoDB</span>
+                    </div>
+                    <div class="orbit-item" style="animation-delay: 7s;">
+                        <span class="bg-pink-500 px-4 py-2 rounded-full">Tailwind CSS</span>
+                    </div>
+                    <!-- Add more skills as needed --> 
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section (Alternating Position) -->
+        <section id="projects" class="bg-gray-100 text-gray-800 py-20">
+            <div class="container mx-auto">
+                <h2 class="text-4xl md:text-6xl font-bold mb-12 text-center">Projects</h2>
+                <div class="flex flex-wrap -mx-6">
+                    <!-- Project 1 -->
+                    <div class="w-full md:w-1/2 px-6 mb-12">
+                        <div class="flex flex-col md:flex-row items-center">
+                            <img src="path/to/project1-image.jpg" alt="Project 1"
+                                class="w-full md:w-1/2 rounded-lg shadow-lg">
+                            <div class="md:ml-6 mt-6 md:mt-0">
+                                <h3 class="text-2xl font-bold mb-4">Project 1</h3>
+                                <p class="mb-4">Description of Project 1</p>
+                                <a href="#"
+                                    class="bg-blue-500 text-white px-4 py-2 rounded-full text-lg hover:bg-blue-600 transition duration-300">View
+                                    Project</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 2 (Alternate Position) -->
+                    <div class="w-full md:w-1/2 px-6 mb-12">
+                        <div class="flex flex-col md:flex-row-reverse items-center">
+                            <img src="path/to/project2-image.jpg" alt="Project 2"
+                                class="w-full md:w-1/2 rounded-lg shadow-lg">
+                            <div class="md:mr-6 mt-6 md:mt-0">
+                                <h3 class="text-2xl font-bold mb-4">Project 2</h3>
+                                <p class="mb-4">Description of Project 2</p>
+                                <a href="#"
+                                    class="bg-blue-500 text-white px-4 py-2 rounded-full text-lg hover:bg-blue-600 transition duration-300">View
+                                    Project</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add more projects as needed, alternating positions -->
                 </div>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section id="contact">
-            <!-- Add your contact information here -->
-            <div class="bg-gray-100 text-gray-800 h-screen flex flex-col justify-center items-center">
+        <section id="contact" class="bg-gray-900 text-white py-20">
+            <div class="container mx-auto text-center">
                 <h2 class="text-4xl md:text-6xl font-bold mb-6">Contact Me</h2>
-                <p class="text-lg md:text-xl max-w-2xl text-center mb-8">I am currently seeking new opportunities and
-                    would love to hear from you. Feel free to reach out to me using the contact form below.</p>
+                <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8">I am currently seeking new opportunities and would
+                    love to hear from you. Feel free to reach out to me using the contact form below.</p>
                 <!-- Contact form -->
                 <form action="#" method="post" class="flex flex-col items-center">
                     <input type="text" name="name" placeholder="Your Name"
-                        class="bg-gray-200 px-4 py-2 rounded-lg mb-4 w-80 md:w-96" required>
+                        class="bg-gray-800 px-4 py-2 rounded-lg mb-4 w-80 md:w-96" required>
                     <input type="email" name="email" placeholder="Your Email"
-                        class="bg-gray-200 px-4 py-2 rounded-lg mb-4 w-80 md:w-96" required>
+                        class="bg-gray-800 px-4 py-2 rounded-lg mb-4 w-80 md:w-96" required>
                     <textarea name="message" placeholder="Your Message"
-                        class="bg-gray-200 px-4 py-2 rounded-lg mb-4 w-80 md:w-96 h-32" required></textarea>
+                        class="bg-gray-800 px-4 py-2 rounded-lg mb-4 w-80 md:w-96 h-32" required></textarea>
                     <button type="submit"
                         class="bg-blue-500 text-white px-6 py-3 rounded-full text-lg hover:bg-blue-600 transition duration-300">Send
                         Message</button>
@@ -158,6 +265,7 @@
             </div>
         </section>
     </main>
+
     <footer class="bg-gray-800 text-white py-6">
         <div class="container mx-auto text-center">
             <p>&copy;
@@ -165,8 +273,18 @@
             </p>
         </div>
     </footer>
+
     <!-- Scripts -->
-    <script src="js/scripts.js"></script>
+    <script>
+        // JavaScript for animated orbiting skills
+        const orbitItems = document.querySelectorAll('.orbit-item');
+        orbitItems.forEach((item, index) => {
+            const delay = index * 1; // Adjust the delay between items
+            item.style.animationDelay = `${delay}s`;
+        });
+    </script>
+    </div>
+    <script src="/js/fun.js"></script>
 </body>
 
 </html>

@@ -2,11 +2,17 @@ function openNewPage() {
   window.location.href = 'newPage.html';
 }
 
-function openTab() {
-  var tabContent = document.getElementById("tabContent");
-  if (tabContent.style.display === "block") {
-    tabContent.style.display = "none"; // Hide if it's already open
-  } else {
-    tabContent.style.display = "block"; // Show if it's hidden
-  }
-}
+
+window.onload = function() {
+  setTimeout(function() {
+      const welcomeScreen = document.getElementById('welcome-screen');
+      welcomeScreen.style.transition = 'opacity 1s';
+      welcomeScreen.style.opacity = '0';
+
+    
+      setTimeout(function() {
+          welcomeScreen.style.display = 'none';
+          document.getElementById('main-content').style.display = 'block';
+      }, 1000);
+  }, 5000);
+};
